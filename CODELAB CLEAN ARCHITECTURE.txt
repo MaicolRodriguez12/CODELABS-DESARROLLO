@@ -1,0 +1,67 @@
+CODELAB: CLEAN ARCHITECTURE
+
+1. ¿Qué problema busca resolver Clean Architecture en el desarrollo de software?:
+
+R/ Clean Architecture intenta eliminar la dependencia directa entre la lógica de negocio y los detalles técnicos del sistema. Su objetivo es evitar que decisiones como el framework, la base de datos o la interfaz de usuario condicionen el corazón de la aplicación, permitiendo que el software evolucione sin romper su núcleo.
+
+2. ¿Cuáles son las principales capas de Clean Architecture y qué responsabilidad tiene cada una?:
+
+R/
+- Entidades (Domain): Contienen las reglas fundamentales del negocio, las que no cambian con el tiempo.
+
+- Casos de Uso (Application): Orquestan la lógica específica de cada proceso, coordinan entidades y definen qué debe ocurrir en cada situación.
+
+- Adaptadores / Interfaces (Interface Adapters): Transforman datos entre el mundo externo (HTTP, CLI, DB) y el modelo interno.
+
+- Infraestructura: Implementa detalles concretos: bases de datos, controladores web, frameworks y conectores externos.
+
+3. ¿Qué relación tiene Clean Architecture con el principio de Inversión de Dependencias (DIP) de SOLID?:
+
+R/ Clean Architecture se apoya directamente en DIP: el código de alto nivel (reglas de negocio) no debe depender del código de bajo nivel (frameworks o infraestructura). En esta arquitectura, las capas internas definen las interfaces y las externas las implementan, logrando que las dependencias apunten siempre hacia el dominio.
+
+4. ¿Por qué es importante desacoplar la lógica de negocio de la infraestructura?:
+
+R/ Porque la infraestructura cambia con frecuencia: una base de datos puede reemplazarse, un framework puede quedar obsoleto o una API puede evolucionar. Si la lógica de negocio depende de esos detalles, hacer modificaciones se vuelve costoso y riesgoso. Separarla garantiza flexibilidad, prueba más sencilla y estabilidad a largo plazo.
+
+5. ¿Cómo Clean Architecture facilita la escalabilidad y mantenibilidad de un sistema?:
+
+R/ Clean Architecture permite crecer sin caos: cada cambio se realiza en la capa adecuada sin afectar las demás. La aislación de responsabilidades hace que agregar casos de uso, cambiar la persistencia o añadir nuevos canales de entrada (API REST, gRPC, eventos) sea más fácil y menos propenso a errores.
+
+6. ¿Qué diferencia hay entre la capa de dominio y la capa de aplicación?:
+
+R/
+- Dominio: Define reglas y conceptos permanentes del negocio; no conoce nada sobre la infraestructura.
+
+- Aplicación: Describe procesos y coordinaciones necesarios para cumplir un caso de uso. Usa entidades del dominio, pero no contiene lógica de negocio pura.
+
+7. ¿Por qué los controladores y la base de datos deben estar en la capa de infraestructura?:
+
+R/ Porque ambos son detalles externos al negocio. El tipo de base de datos, la ruta de un controlador o el protocolo HTTP son aspectos cambiantes y específicos de una tecnología particular. Guardarlos en infraestructura evita contaminar las capas internas y permite sustituirlos sin afectar el núcleo del sistema.
+
+8. ¿Qué ventajas tiene usar una interfaz en la capa de dominio para definir repositorios en lugar de usar directamente JpaRepository?:
+
+R/
+- Evita acoplar el dominio a JPA o a cualquier tecnología de persistencia.
+
+- Permite intercambiar fácilmente la base de datos o la forma de almacenar datos.
+
+- Facilita pruebas unitarias, ya que se pueden usar implementaciones simuladas (mocks).
+
+- Mantiene el dominio libre de anotaciones y dependencias externas.
+
+9. ¿Cómo interactúan los casos de uso (UseCases) con las entidades de dominio?:
+
+R/ Los casos de uso llaman a las entidades para ejecutar reglas del negocio y utilizan interfaces de repositorio para obtener o guardar información. Son los coordinadores de la lógica, pero no alteran las reglas internas de las entidades; simplemente las orquestan para dar solución a una operación específica.
+
+10. ¿Cómo se puede aplicar Clean Architecture en una aplicación de microservicios con Spring Boot?
+
+R/
+- Definiendo el dominio y los casos de uso sin dependencias a Spring.
+
+- Ubicando controladores, configuraciones y repositorios concretos en la capa de infraestructura.
+
+- Invirtiendo dependencias con interfaces en las capas internas e implementaciones en las externas.
+
+- Diseñando cada microservicio como una unidad autónoma que sigue las mismas reglas de estructura.
+
+
