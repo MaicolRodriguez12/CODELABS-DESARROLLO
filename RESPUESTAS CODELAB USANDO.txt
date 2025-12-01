@@ -1,0 +1,76 @@
+RESPUESTAS CODELAB: USANDO ADD + CLEAN ARCHITECTURE 
+
+
+1. ¿Qué es Attribute-Driven Design (ADD) y cuál es su propósito en el diseño de software?:
+
+R/ ADD es una técnica de diseño arquitectónico que parte de las metas de calidad del sistema como disponibilidad, rendimiento o seguridad para decidir su forma estructural. Su propósito fundamental es asegurar que la arquitectura esté alineada desde el principio con las prioridades no funcionales, evitando improvisaciones posteriores.
+
+2. ¿Cómo se relaciona ADD con Clean Architecture en el proceso de diseño de sistemas?:
+
+R/ ADD establece la arquitectura macro basándose en atributos de calidad, mientras que Clean Architecture actúa a nivel interno: define cómo organizar el código dentro de los límites creados por ADD. En conjunto, ADD define el “qué” de la arquitectura y Clean Architecture explica el “cómo” implementarlo ordenadamente.
+
+3. ¿Cuáles son los pasos principales del método ADD para definir una arquitectura de software?:
+
+R/  
+- Seleccionar el módulo o componente que será diseñado.
+
+- Identificar los atributos de calidad relevantes y las restricciones de ese elemento.
+
+- Escoger tácticas y patrones que permitan cumplir dichos atributos.
+
+- Especificar la estructura, responsabilidades e interfaces.
+
+- Validar y capturar la decisión arquitectónica.
+
+- Repetir el proceso para cada parte del sistema según se vaya descomponiendo.
+
+4. ¿Cómo se identifican los atributos de calidad en ADD y por qué son importantes?:
+
+R/ Los atributos se obtienen mediante escenarios, sesiones con los interesados, revisión de requisitos y análisis del dominio. Son esenciales porque guían las decisiones arquitectónicas, asegurando que el diseño responda efectivamente a las expectativas de desempeño, fiabilidad, seguridad, etc., en lugar de basarse solo en intuición.
+
+5. ¿Por qué Clean Architecture complementa ADD en la implementación de una solución?: 
+
+R/ Una vez que ADD establece que el sistema debe ser mantenible, extensible o resistente al cambio, Clean Architecture proporciona las reglas prácticas como la inversión de dependencias y la separación de capas que permiten materializar esos atributos en código. En otras palabras, Clean Architecture operativiza las metas definidas con ADD.
+
+6. ¿Qué criterios se deben considerar al definir las capas en Clean Architecture dentro de un proceso ADD?:
+
+R/
+- Dirección de dependencias: Las dependencias deben orientarse siempre hacia la lógica de negocio.
+
+- Contención de componentes volátiles: Ubicar elementos que cambian frecuentemente en capas externas para proteger el núcleo estable.
+
+- Roles bien delimitados: Cada capa debe asumir una responsabilidad distinta, evitando mezclar lógica de negocio, infraestructura o frameworks.
+
+7. ¿Cómo ADD ayuda a tomar decisiones arquitectónicas basadas en necesidades del negocio?:
+
+R/ ADD toma requerimientos estratégicos —por ejemplo, “el sistema debe escalar sin degradar la experiencia”— y los transforma en atributos de calidad formales. Con base en esos atributos, se seleccionan tácticas claras como balanceo de carga, cacheo o particionamiento. Esto permite que las decisiones arquitectónicas respondan directamente a metas empresariales.
+
+8. ¿Cuáles son los beneficios de combinar ADD con Clean Architecture en un sistema basado en microservicios?:
+
+R/
+- Definición precisa del servicio: ADD ayuda a delimitar cada microservicio según los atributos clave que debe cumplir.
+
+- Arquitectura interna sólida: Clean Architecture garantiza que cada servicio tenga una estructura interna clara, mantenible y desacoplada.
+
+- Homogeneidad técnica: La unión de ambos asegura que todos los microservicios mantengan estándares de calidad similares, facilitando su evolución y operación.
+
+9. ¿Cómo se asegura que la arquitectura resultante cumpla con los atributos de calidad definidos en ADD?:
+
+R/
+- Revisiones arquitectónicas: Usar técnicas como ATAM para verificar si las decisiones adoptadas atienden los escenarios de calidad.
+
+- Pruebas orientadas a atributos: Aplicar pruebas de estrés, seguridad o disponibilidad para validar los atributos más sensibles.
+
+- Construcción de prototipos: Desarrollar pequeños casos prácticos que validen que las tácticas elegidas funcionan adecuadamente antes del desarrollo completo.
+
+10. ¿Qué herramientas o metodologías pueden ayudar a validar una arquitectura diseñada con ADD y Clean Architecture?:
+
+R/
+- ATAM para evaluación de decisiones arquitectónicas.
+
+- JMeter, Gatling u otras herramientas de performance para medir tiempo de respuesta y escalabilidad.
+
+- Analizadores estáticos para validar dependencias entre capas.
+
+- Modelos C4 para representar visualmente los niveles de abstracción y confirmar que la arquitectura responde a los atributos definidos.
+
