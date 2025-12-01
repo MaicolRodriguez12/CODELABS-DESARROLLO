@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for producto-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/3.4.3/spring-boot-configuration-processor-3.4.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="producto-service" />
+      </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pedido-service" />
+        <module name="eureka-server" />
+        <module name="producto-service (1) (com.example)" />
+      </profile>
+      <profile name="Annotation profile for producto-service-async" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+        </processorPath>
+        <module name="producto-service (2) (com.example)" />
+        <module name="pedido-service (1)" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka-server" options="-parameters" />
+      <module name="pedido-service" options="-parameters" />
+      <module name="pedido-service (1)" options="-parameters" />
+      <module name="producto-service" options="-parameters" />
+      <module name="producto-service (1) (com.example)" options="-parameters" />
+      <module name="producto-service (2) (com.example)" options="-parameters" />
+    </option>
+  </component>
+</project>
